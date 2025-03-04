@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agences', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('nom', 100);
+        Schema::create('messages', function (Blueprint $table) {
+            $table->uuid()->primary();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agences');
+        Schema::dropIfExists('messages');
     }
 };

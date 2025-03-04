@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('locataires', function (Blueprint $table) {
-            $table->id();
+            $table->uuid()->primary();
+            $table->string('nom', 100);
+            $table->string('prenom', 100);
+            $table->string('telephone', 20);
+            $table->string('email', 100)->unique();
             $table->timestamps();
         });
     }
